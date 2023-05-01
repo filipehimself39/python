@@ -1,5 +1,7 @@
 # python
 
+![evangelion_pi](https://user-images.githubusercontent.com/128937668/235545833-92bb7110-05b9-474d-ad90-a724bbee293c.gif)
+
 ## Lista de todas as palavras reservadas
 
 **False, True, None:** valores literais que representam, respectivamente, falso, verdadeiro e nenhum valor.
