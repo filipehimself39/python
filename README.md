@@ -61,3 +61,7 @@ print("A={:.4f}".format(area))
 A primeira linha define a constante pi com o valor de 3.14159. Em seguida, o usuário é solicitado a inserir o valor do raio através da função **input()**.
 
 O valor é convertido para ponto flutuante (ou seja, pode assumir valores quebrados) utilizando a função **float()**
+
+Um asterisco (*) serve para multiplicar e o uso de dois asteriscos (**) serve para elevar a um número n.
+
+O método **.format** permite que você insira valores em uma string usando marcadores de posição (como {}) que serão substituídos pelos valores passados como argumentos do método. No exemplo acima, usamos "{:.4f}" como marcador de posição, o que significa que o valor passado como argumento (a área calculada) será formatado como um número de ponto flutuante com 4 casas decimais. O resultado será a string "A=valor_da_area_com_4_casas_decimais", que é impressa na tela usando a função print().
