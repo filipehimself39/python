@@ -302,3 +302,69 @@ A segunda linha verifica se a é múltiplo de b ou se b é múltiplo de a usando
 Se os valores são múltiplos, a mensagem "Sao Multiplos" é exibida na tela. Caso contrário, a mensagem "Nao sao Multiplos" é exibida.
 
 ---
+
+## Tipos de triângulos
+
+```
+a, b, c = map(float, input().split())
+
+# ordenação dos valores em ordem decrescente
+maior = max(a, max(b, c))
+menor = min(a, min(b, c))
+meio = (a + b + c) - maior - menor
+
+# verificação se forma triângulo
+if maior >= (meio + menor):
+    print("NAO FORMA TRIANGULO")
+else:
+    # verificação do tipo de triângulo
+    if maior ** 2 == meio ** 2 + menor ** 2:
+        print("TRIANGULO RETANGULO")
+    elif maior ** 2 > meio ** 2 + menor ** 2:
+        print("TRIANGULO OBTUSANGULO")
+    else:
+        print("TRIANGULO ACUTANGULO")
+
+    # verificação se é equilátero ou isósceles
+    if a == b == c:
+        print("TRIANGULO EQUILATERO")
+    elif a == b or b == c or a == c:
+        print("TRIANGULO ISOSCELES")
+
+```
+
+Primeiramente, lemos os valores de entrada com a função input() e os convertemos para float(), utilizando a função map() para aplicar a conversão a todos os valores de uma vez.
+
+Em seguida, realizamos a ordenação dos valores em ordem decrescente, para que maior seja o valor de a, e menor seja o valor de b ou c, dependendo da ordem dos valores.
+
+Para encontrar o valor do meio, basta subtrair o valor de maior e menor da soma dos três valores de entrada.
+
+Após a ordenação, verificamos se os valores de entrada formam um triângulo, utilizando a condição maior >= (meio + menor).
+
+Caso não formem, imprimimos a mensagem "NAO FORMA TRIANGULO". Caso contrário, continuamos com a verificação do tipo de triângulo.
+
+Utilizamos a condição maior ** 2 == meio ** 2 + menor ** 2 para verificar se o triângulo é retângulo, e maior ** 2 > meio ** 2 + menor ** 2 para verificar se é obtusângulo. Se nenhum dos dois for verdadeiro o triângulo é acutângulo.
+
+Por fim, verificamos se o triângulo é equilátero ou isósceles. Utilizamos a condição a == b == c para verificar se é equilátero, e a == b or b == c or a == c para verificar se é isósceles.
+
+---
+
+## Tempo de jogo
+
+```
+hora_inicial, hora_final = map(int, input().split())
+
+if hora_inicial < hora_final:
+    duracao = hora_final - hora_inicial
+else:
+    duracao = 24 - hora_inicial + hora_final
+
+print("O JOGO DUROU {} HORA(S)".format(duracao))
+
+```
+
+O programa lê as duas horas de entrada e verifica se a hora final é maior que a hora inicial.
+
+Se for, basta subtrair a hora inicial da hora final para obter a duração do jogo. Se a hora final for menor do que a hora inicial, significa que o jogo terminou no dia seguinte, então é preciso somar a hora final com 24 e subtrair a hora inicial para obter a duração.
+
+Por fim, o programa exibe a duração do jogo com a mensagem adequada.
