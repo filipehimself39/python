@@ -179,3 +179,126 @@ Por fim, a função print() é usada para imprimir o resultado na tela, utilizan
 
 ## Salário
 
+```
+numero_funcionario = int(input())
+horas_trabalhadas = int(input())
+valor_hora = float(input())
+
+salario = horas_trabalhadas * valor_hora
+
+print("NUMBER = {}".format(numero_funcionario))
+print("SALARY = R$ {:.2f}".format(salario))
+
+```
+
+Na primeira linha, o programa lê o número do fncionário como um inteiro e armazena na variável numero_funcionario.
+
+Na segunda linha, o programa lê o número de horas trabalhadas como um inteiro e armazena na variável horas_trabalhadas.
+
+Na terceira linha, o programa lê o valor que o funcionario recebe por hora como um número de ponto flutuante e armazena na variável valor_hora.
+
+Na quarta linha, o programa calcula o salário do funcionário multiplicando o número de horas trabalhadas pelo valor da hora trabalhada.
+
+Na quinta linha, o programa imprime o número do funcionário utilizando a função print() e a formatação de string "NUMBER = {}".format (numero_funcionario), onde {} é substituído pelo valor de numero_funcionario.
+
+Na sexta linha, o programa imprime o salário do funcionário utilizando a função print e a formatação de string "SALARY = {:.2f}".format(salario), onde {:.2f} indica que o valor de salario deve ser impresso com duas casas decimais.
+
+---
+
+## Salário com bônus
+
+```
+nome_vendedor = input()
+salario_fixo = float(input())
+total_vendas = float(input())
+
+comissao = total_vendas * 0.15
+
+salario_total = salario_fixo + comissao
+
+print("TOTAL = {:.2f}".format(salario_total))
+
+```
+
+Primeiramente, o códigolê o nome do vendedor utilizando a função input().
+
+Em seguida, lê-se o salário fixo do vendedor e o total de vendas efetuadas, utilizando a função float() para converter as entradas em números de ponto flutuante.
+
+A variável comissao é calculada multiplicando-se o total de vendas por 0.15 (ou 15%).
+
+O salário total é calculado somando-se o salário fixo com a comissão.
+
+Por fim, utiliza-se a função print() para imprimir o salário total, formatando-o com duas casas decimais através do método .format().
+
+---
+
+## Sort simples
+
+```
+a, b, c = map(int, input().split())
+
+# cria uma lista com os valores e ordena em ordem crescente
+valores_ordenados = sorted([a, b, c])
+
+# imprime os valores ordenados em ordem crescente
+print("{}\n{}\n{}".format(valores_ordenados[0], valores_ordenados[1], valores_ordenados[2]))
+
+# imprime uma linha em branco
+print()
+
+# imprime os valores na sequência como foram lidos
+print("{}\n{}\n{}".format(a, b, c))
+
+```
+
+Nessa solução, usamos a função **map()** para converter os três valores de entrada para inteiros e a função **sorted()** para ordená-los em ordem crescente.
+
+Em seguida, imprimimos os valores ordenados separados por quebras de linha (\n) e imprimimos uma linha em branco com um segundo print() vazio.
+
+Por fim, imprimimos os valores originais na sequência como foram lidos, novamente separados por quebras de linha.
+
+---
+
+## Triângulo
+
+```
+a, b, c = map(float, input().split())
+
+# verifica se forma um triângulo
+if a + b > c and a + c > b and b + c > a:
+    perimetro = a + b + c
+    print("Perimetro = {:.1f}".format(perimetro))
+else:
+    area = ((a + b) * c) / 2
+    print("Area = {:.1f}".format(area))
+
+```
+
+A função input() lê a entrada como uma string, que é separada em três valores usando o método **split()**. Os valores são convertidos para float usando a função float() e a função map().
+
+Em seguida, é feita a verificação se forma ou não um triângulo e é calculado o perímetro ou a área, de acordo com o resultado da verificação.
+
+O resultado é impresso na tela usando a função print(), com a formatação desejada usando .format().
+
+---
+
+## Múltiplos
+
+```
+a, b = map(int, input().split())
+
+# verifica se são múltiplos
+if a % b  == 0 or b % a == 0:
+    print("Sao Multiplos")
+else:
+    print("Nao sao Multiplos")
+
+```
+
+A primeira linha lê os valores de a e b com a função input() e converte-os para inteiros com a função int(). Em seguida, usa a função map() para aplicar a conversão a ambos os valores lidos.
+
+A segunda linha verifica se a é múltiplo de b ou se b é múltiplo de a usando o operador **% (resto da divisão)**. Se o resto for zero em uma dessas verificações, então os valores são múltiplos entre si.
+
+Se os valores são múltiplos, a mensagem "Sao Multiplos" é exibida na tela. Caso contrário, a mensagem "Nao sao Multiplos" é exibida.
+
+---
