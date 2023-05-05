@@ -368,3 +368,199 @@ O programa lê as duas horas de entrada e verifica se a hora final é maior que 
 Se for, basta subtrair a hora inicial da hora final para obter a duração do jogo. Se a hora final for menor do que a hora inicial, significa que o jogo terminou no dia seguinte, então é preciso somar a hora final com 24 e subtrair a hora inicial para obter a duração.
 
 Por fim, o programa exibe a duração do jogo com a mensagem adequada.
+
+---
+
+## Aumento de salário
+
+```
+salario = float(input())
+
+if salario <= 400:
+    percentual = 15
+elif salario <= 800:
+    percentual = 12
+elif salario <= 1200:
+    percentual = 10
+elif salario <= 2000:
+    percentual = 7
+else:
+    percentual = 4
+
+reajuste = salario * percentual / 100
+novo_salario = salario + reajuste
+
+print("Novo salario: {:.2f}".format(novo_salario))
+print("Reajuste ganho: {:.2f}".format(reajuste))
+print("Em percentual: {} %".format(percentual))
+
+```
+
+O código lê o salário do funcionário e verifica em qual faixa de salário ele se encaixa, de acordo com a tabela de percentuais de reajuste.
+
+Em seguida, calcula o valor do reajuste e o novo salário do funcionário. Por fim, imprime as informações pedidas.
+
+---
+
+## Animal
+
+```
+# lendo as três palavras
+palavra1 = input().lower()
+palavra2 = input().lower()
+palavra3 = input().lower()
+
+# verificando qual o animal escolhido
+if palavra1 == 'vertebrado':
+    if palavra2 == 'ave':
+        if palavra3 == 'carnivoro':
+            animal = 'aguia'
+        else:
+            animal = 'pomba'
+    else:
+        if palavra3 == 'onivoro':
+            animal = 'homem'
+        else:
+            animal = 'vaca'
+else:
+    if palavra2 == 'inseto':
+        if palavra3 == 'hematofago':
+            animal = 'pulga'
+        else:
+            animal = 'lagarta'
+    else:
+        if palavra3 == 'hematofago':
+            animal = 'sanguessuga'
+        else:
+            animal = 'minhoca'
+
+# imprimindo o animal escolhido
+print(animal)
+
+```
+
+O programa lê as três palavras, converte todas as letras para minúsculas (com o método .lower()) e verifica qual o animal escolhido, utilizando a estrutura condicional.
+
+Se a primeira palavra for "vertebrado", o programa verifica se a segunda palavra é "ave" ou "mamifero". Se for "ave", o programa verifica se a terceira palavra é "carnivoro" ou "onivoro".
+
+Dependendo das respostas, o programa define qual o animal escolhido (águia, pomba, homem ou vaca). Se a primeira palavra for "invertebrado", o programa segue um caminho semelhante, mas com outros animais possíveis (pulga, lagarta, sanguessuga ou minhoca).
+
+Por fim, o programa imprime o animal escolhido.
+
+---
+
+## DDD
+
+```
+ddd = int(input())
+
+if ddd == 61:
+    print("Brasilia")
+elif ddd == 71:
+    print("Salvador")
+elif ddd == 11:
+    print("Sao Paulo")
+elif ddd == 21:
+    print("Rio de Janeiro")
+elif ddd == 32:
+    print("Juiz de Fora")
+elif ddd == 19:
+    print("Campinas")
+elif ddd == 27:
+    print("Vitoria")
+elif ddd == 31:
+    print("Belo Horizonte")
+else:
+    print("DDD nao cadastrado")
+
+```
+
+Primeiramente, a entrada do DDD é lida como um inteiro utilizando a função int(input()).
+
+Em seguida, é feita uma série de comparações utilizando o comando if para verificar qual é o DDD informado e imprimir o nome da cidade correspondente.
+
+Caso o DDD não esteja presente na tabela, é impressa a mensagem "DDD nao cadastrado" utilizando o comando else.
+
+---
+
+## Positivos e média
+
+```
+# lendo os 6 valores
+valores = []
+for i in range(6):
+    valores.append(float(input()))
+
+# contando os valores positivos
+positivos = sum([1 for v in valores if v > 0])
+
+# calculando a média dos valores positivos
+media_positivos = sum([v for v in valores if v > 0]) / positivos
+
+# imprimindo o resultado
+print("{} valores positivos".format(positivos))
+print("{:.1f}".format(media_positivos))
+
+```
+
+Na primeira parte do código, lemos os 6 valores e armazenamos em uma lista chamada valores. Em seguida, utilizamos a função sum em conjunto com uma lista comprehension para contar quantos valores positivos existem na lista. Note que estamos usando a sintaxe [1 for v in valores if v > 0] para criar uma lista com valores 1 para cada elemento da lista valores que for positivo. Depois, usamos a função sum para somar todos esses valores, obtendo o total de valores positivos.
+
+Na segunda parte do código, usamos novamente a função sum em conjunto com uma lista comprehension para somar todos os valores positivos da lista valores. Em seguida, dividimos esse valor pelo total de valores positivos para obter a média, que é armazenada na variável media_positivos.
+
+Por fim, usamos a função print para imprimir o resultado. Usamos a função format para formatar as mensagens, inserindo os valores das variáveis positivos e media_positivos. Na segunda mensagem, usamos a opção :.1f para imprimir a média com apenas um dígito após o ponto decimal.
+
+---
+
+## Revisão de contrato
+
+```
+while True:
+    d, n = input().split()
+    
+    if d == "0" and n == "0":
+        break
+        
+    new_n = ""
+    for digit in n:
+        if digit != d:
+            new_n += digit
+            
+    if new_n == "":
+        print(0)
+    else:
+        print(int(new_n))
+
+```
+
+Para cada caso de teste, o programa lê uma linha com dois números separados por espaço, sendo o primeiro o dígito com falha e o segundo o número original do contrato.
+
+Em seguida, é criada uma nova string new_n que representa o número sem o dígito com falha.
+
+Depois, o programa verifica se a string new_n é vazia, o que significa que o número original só tinha o dígito com falha. Nesse caso, o programa imprime 0.
+
+Caso contrário, o programa converte a string new_n em um inteiro usando a função int e imprime o resultado.
+
+---
+
+## Substituição em vetor 1
+
+```
+# lê o vetor X
+X = []
+for i in range(10):
+    X.append(int(input()))
+
+# substitui os valores negativos e nulos por 1
+for i in range(10):
+    if X[i] <= 0:
+        X[i] = 1
+
+# mostra o vetor X
+for i in range(10):
+    print("X[{}] = {}".format(i, X[i]))
+
+```
+
+Explicando o código, primeiramente é lido o vetor X com 10 valores inteiros. Em seguida, é feito um loop para percorrer o vetor e substituir os valores negativos e nulos por 1. Por fim, é feito outro loop para mostrar o vetor X já modificado.
+
+Note que a linha X.append(int(input())) lê um valor inteiro do usuário e adiciona ao final do vetor X. Já a linha print("X[{}] = {}".format(i, X[i])) mostra o valor de X na posição i, utilizando formatação de string para exibir corretamente o índice e o valor.
