@@ -564,3 +564,153 @@ for i in range(10):
 Explicando o código, primeiramente é lido o vetor X com 10 valores inteiros. Em seguida, é feito um loop para percorrer o vetor e substituir os valores negativos e nulos por 1. Por fim, é feito outro loop para mostrar o vetor X já modificado.
 
 Note que a linha X.append(int(input())) lê um valor inteiro do usuário e adiciona ao final do vetor X. Já a linha print("X[{}] = {}".format(i, X[i])) mostra o valor de X na posição i, utilizando formatação de string para exibir corretamente o índice e o valor.
+
+---
+
+## Preenchimento de vetor 1
+
+```
+v = int(input())  # lê o valor inteiro
+
+n = [v]  # cria o vetor com o valor lido na primeira posição
+
+for i in range(1, 10):
+    n.append(n[i-1] * 2)  # adiciona ao vetor o dobro do valor anterior
+
+# imprime o vetor formatado
+for i in range(10):
+    print("N[{}] = {}".format(i, n[i]))
+
+```
+
+O programa lê o valor inteiro v e cria um vetor n com esse valor na primeira posição.
+
+Em seguida, um laço for é utilizado para preencher as posições subsequentes do vetor com o dobro do valor da posição anterior.
+
+Por fim, outro laço for é utilizado para imprimir o vetor formatado com as posições e seus respectivos valores.
+
+---
+
+## Seleção em vetor 1
+
+```
+# lê os valores do vetor A
+A = []
+for i in range(100):
+    A.append(float(input()))
+
+# procura os valores menores ou iguais a 10
+for i in range(100):
+    if A[i] <= 10:
+        print("A[{}] = {:.1f}".format(i, A[i]))
+
+```
+
+O programa lê os 100 valores do vetor A e, em seguida, percorre o vetor procurando por valores menores ou iguais a 10.
+
+Quando encontra um valor desses, imprime a posição e o valor correspondente utilizando a função .format() para formatar a saída com uma casa decimal.
+
+---
+
+## Troca em vetor 1
+
+```
+# lê os valores do vetor
+vetor = []
+for i in range(20):
+    valor = int(input())
+    vetor.append(valor)
+
+# troca os elementos do vetor
+for i in range(10):
+    j = 19 - i
+    aux = vetor[i]
+    vetor[i] = vetor[j]
+    vetor[j] = aux
+
+# mostra o vetor modificado
+for i in range(20):
+    print("N[{}] = {}".format(i, vetor[i]))
+
+```
+
+Primeiro, o programa lê os valores do vetor N, armazenando-os em uma lista chamada vetor.
+
+Em seguida, ele realiza as trocas de elementos do vetor usando um loop que varre do primeiro até o décimo elemento do vetor, trocando com o elemento correspondente do final do vetor.
+
+Por fim, o programa mostra o vetor modificado usando outro loop que varre todas as posições do vetor, imprimindo o índice e o vetor correspondente usando a formatação especificada.
+
+---
+
+## Fibonacci em vetor
+
+```
+# função para calcular o n-ésimo número de Fibonacci
+def fibonacci(n):
+    if n <= 1:
+        return n
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
+
+# lê o número de casos de teste
+t = int(input())
+
+# para cada caso de teste
+for i in range(t):
+    # lê o valor de n
+    n = int(input())
+    
+    # calcula o n-ésimo número de Fibonacci
+    fib = fibonacci(n)
+    
+    # exibe o resultado
+    print("Fib({}) = {}".format(n, fib))
+
+```
+
+A ideia é usar uma função recursiva 'fibonacci' para calcular o n-ésimo número de Fibonacci.
+
+Em seguida, basta ler o número de casos de teste 't', e para cada caso de teste, ler o valor de n, calcular o número de Fibonacci correspondente e exibi-lo.
+
+---
+
+## Preenchimento de vetor 4
+
+```
+# Inicializa os vetores de números pares e ímpares
+pares = []
+impares = []
+
+# Loop para ler os 15 números
+for i in range(15):
+    num = int(input())
+
+    # Se o número é par, adiciona no vetor de pares
+    if num % 2 == 0:
+        pares.append(num)
+
+        # Se o vetor de pares encheu, imprime e reinicializa
+        if len(pares) == 5:
+            for j in range(5):
+                print("par[{}] = {}".format(j, pares[j]))
+            pares = []
+
+    # Se o número é ímpar, adiciona no vetor de ímpares
+    else:
+        impares.append(num)
+
+        # Se o vetor de ímpares encheu, imprime e reinicializa
+        if len(impares) == 5:
+            for j in range(5):
+                print("impar[{}] = {}".format(j, impares[j]))
+            impares = []
+
+# Imprime os números que sobraram nos vetores
+for i in range(len(impares)):
+    print("impar[{}] = {}".format(i, impares[i]))
+
+for i in range(len(pares)):
+    print("par[{}] = {}".format(i, pares[i]))
+
+```
+
