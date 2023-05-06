@@ -371,6 +371,54 @@ Por fim, o programa exibe a duração do jogo com a mensagem adequada.
 
 ---
 
+## Tempo de jogo com minutos
+
+```
+x = input().split()
+hi, mi, hf, mf = x
+
+hi = int(x[0])
+mi = int(x[1])
+hf = int(x[2])
+mf = int(x[3])
+
+if hi < hf:
+    h = hf - hi
+    if mi < mf:
+        m = mf - mi
+    if mi > mf:
+        h = h - 1
+        m = (60 - mi) + mf
+    if mi == mf:
+        m = 0
+if hi > hf:
+    h = (24 - hi) + hf
+    if mi < mf:
+        m = mf - mi
+    if mi > mf:
+        h = h - 1
+        m = (60 - mi) + mf
+    if mi == mf:
+        m = 0
+if hi == hf:
+    if mi < mf:
+        m = mf - mi
+        h = 0
+    if mi > mf:
+        m = (60 - mi) + mf
+        h = 23
+    if mi == mf:
+        h = 24
+        m = 0
+    
+print('O JOGO DUROU {} HORA(S) E {} MINUTO(S)'.format(h, m))
+
+```
+
+Este código lê quatro números inteiros que representam a hora inicial e final de um jogo e calcula a duração do jogo em horas e minutos. O código tem três blocos condicionais, um para cada caso em que a hora inicial é menor, maior ou igual à hora final. Para calcular a duração do jogo, o código faz a diferença entre as horas e minutos iniciais e finais, e ajusta os valores de acordo com as condições de hora e minuto.
+
+---
+
 ## Aumento de salário
 
 ```
@@ -542,6 +590,35 @@ Caso contrário, o programa converte a string new_n em um inteiro usando a funç
 
 ---
 
+## Frequência de números
+
+```
+qte = int(input())
+lista = {}
+for i in range(qte):
+    v = int(input())
+    if(v in lista):
+        lista[v] += 1
+    else:
+        lista[v] = 1
+
+
+chaves = lista.keys()
+chaves = sorted(chaves)
+
+for k in chaves:
+    print("%d aparece %d vez(es)" %(k,lista[k]))
+
+```
+
+O código apresentado é uma solução correta para o problema de contar a frequência de cada valor em uma lista de inteiros. O algoritmo utiliza um dicionário para armazenar a contagem de ocorrências de cada valor na lista, percorrendo a lista e incrementando o valor correspondente no dicionário para cada elemento encontrado.
+
+Em seguida, o código ordena as chaves do dicionário (os valores únicos presentes na lista) e itera sobre elas, imprimindo a contagem correspondente a cada valor.
+
+A complexidade do algoritmo é linear em relação ao tamanho da lista de entrada, já que é necessário percorrer cada elemento uma única vez para fazer a contagem. O uso do dicionário permite que a contagem seja feita com complexidade constante para cada elemento da lista, já que a operação de adicionar um elemento a um dicionário é de tempo médio constante em Python.
+
+---
+
 ## Substituição em vetor 1
 
 ```
@@ -645,32 +722,41 @@ Por fim, o programa mostra o vetor modificado usando outro loop que varre todas 
 ## Fibonacci em vetor
 
 ```
-# função para calcular o n-ésimo número de Fibonacci
-def fibonacci(n):
-    if n <= 1:
-        return n
-    else:
-        return fibonacci(n-1) + fibonacci(n-2)
-
-# lê o número de casos de teste
-t = int(input())
-
-# para cada caso de teste
+t=int(input())
 for i in range(t):
-    # lê o valor de n
-    n = int(input())
-    
-    # calcula o n-ésimo número de Fibonacci
-    fib = fibonacci(n)
-    
-    # exibe o resultado
-    print("Fib({}) = {}".format(n, fib))
+    x=int(input())
+    f=[0,1]
+    if x>1:
+        for j in range(2,x+1):
+           
+            f.append(f[j-2]+f[j-1])
+        print('Fib({}) = {}'.format(x,f[x]))
+    if x <=1:
+        print('Fib({}) = {}'.format(x,f[x]))
 
 ```
 
-A ideia é usar uma função recursiva 'fibonacci' para calcular o n-ésimo número de Fibonacci.
+O código dado é uma implementação do algoritmo para encontrar o número de Fibonacci correspondente a um número inteiro informado pelo usuário. O programa utiliza um loop para preencher uma lista com os números da sequência de Fibonacci até o número informado. Em seguida, o número correspondente é exibido na tela.
 
-Em seguida, basta ler o número de casos de teste 't', e para cada caso de teste, ler o valor de n, calcular o número de Fibonacci correspondente e exibi-lo.
+Abaixo está uma explicação passo a passo do código:
+
+A primeira linha lê um inteiro t, que indica o número de testes que serão realizados.
+
+O loop for é executado t vezes e para cada iteração:
+
+É lido um inteiro x que indica qual número de Fibonacci deve ser encontrado.
+
+É criada uma lista f com os dois primeiros números da sequência de Fibonacci, que são 0 e 1.
+
+Se x for maior que 1, um loop for é executado para adicionar os próximos números da sequência de Fibonacci na lista f.
+
+Cada número adicionado na lista é a soma dos dois números anteriores da sequência.
+
+Após preencher a lista com todos os números da sequência até o número x, o valor correspondente é exibido na tela usando a função print() e uma string formatada.
+
+Se x for menor ou igual a 1, o valor correspondente é exibido diretamente, sem a necessidade de criar a lista f.
+
+No geral, o programa funciona corretamente para encontrar os números de Fibonacci correspondentes aos valores informados pelo usuário.
 
 ---
 
@@ -714,3 +800,225 @@ for i in range(len(pares)):
 
 ```
 
+O código acima realiza a leitura de 15 números inteiros, armazenando-os em dois vetores diferentes: um para números pares e outro para ímpares. A medida que cada vetor enche com 5 elementos, o código os imprime na tela e reinicializa o vetor. No final, o código imprime os elementos restantes nos vetores que não foram impressos.
+
+O código funciona da seguinte forma:
+
+Inicializa os vetores de pares e ímpares vazios.
+
+Realiza um loop para ler os 15 números.
+
+Se o número lido é par, adiciona-o no vetor de pares e verifica se o vetor encheu. Se sim, imprime os números pares armazenados e reinicializa o vetor.
+
+Se o número lido é ímpar, adiciona-o no vetor de ímpares e verifica se o vetor encheu. Se sim, imprime os números ímpares armazenados e reinicializa o vetor.
+
+Após a leitura dos 15 números, imprime os elementos que sobraram nos vetores de pares e ímpares que não foram impressos.
+
+O código é uma forma de particionar um conjunto de números inteiros em dois vetores separados por paridade, e imprimir esses vetores de maneira organizada na tela.
+
+---
+
+## Menor e posição
+
+```
+n = int(input())
+x = list(map(int, input().split()))
+
+menor = x[0]
+posicao = 0
+
+for i in range(1, n):
+    if x[i] < menor:
+        menor = x[i]
+        posicao = i
+
+print("Menor valor:", menor)
+print("Posicao:", posicao)
+
+```
+
+O programa começa lendo o tamanho do vetor N e em seguida lendo os valores do vetor X. Em seguida, o programa percorre todo o vetor X, comparando cada valor com o menor valor encontrado até então.
+
+Caso encontre um valor menor, atualiza a variável menor e a posição do menor valor no vetor X na variável posicao.
+
+Por fim, o programa exibe o menor valor e a sua posição no vetor.
+
+---
+
+## Linha na matriz
+
+```
+matriz = []
+soma = 0.0
+indice = int(input())
+opecacao = input()
+for i in range(12):
+  linha = []
+  for j in range(12):
+    numero = float(input())
+    linha.append(numero)
+  matriz.append(linha)
+
+for a in range(12):
+  for b in range(12):
+    if a == indice:
+      soma+=matriz[a][b]
+
+if opecacao == "S":      
+  print("%.1f"%soma)      
+elif opecacao == "M":
+  print("%.1f"%(soma/12))
+```
+
+O código apresentado parece estar correto e realiza a soma ou média dos elementos de uma linha da matriz, conforme indicado pelo usuário. No entanto, é importante lembrar que ele assume que a matriz tem sempre dimensões 12x12 e que os valores de entrada estão corretos e seguem o formato esperado.
+
+Uma possível sugestão de melhoria seria adicionar validações para garantir que o índice de linha informado pelo usuário esteja dentro dos limites da matriz e que o tipo de operação informada seja válido (apenas "S" ou "M"). Isso evitaria erros no programa caso essas condições não sejam atendidas.
+
+---
+
+## Coluna na matriz
+
+```
+coluna = int(input())
+operacao = input().upper()
+
+matriz = []
+
+for i in range(12):
+    linha = []
+    for j in range(12):
+        linha.append(float(input()))
+    matriz.append(linha)
+
+soma = 0
+for i in range(12):
+    soma += matriz[i][coluna]
+
+if operacao == 'S':
+    print("{:.1f}".format(soma))
+else:
+    media = soma / 12
+    print("{:.1f}".format(media))
+
+```
+
+Primeiro, lemos o número da coluna e a operação desejada (soma ou média).
+
+Em seguida, criamos a matriz lendo os 144 elementos de entrada, linha por linha.
+
+Depois, percorremos os elementos da coluna desejada e somamos seus valores na variável soma.
+
+Por fim, verificamos se a operação desejada é soma ou média e imprimimos o resultado formatado com uma casa decimal utilizando o método format().
+
+---
+
+## Acima da diagonal principal
+
+```
+operacao = input()  # lê a operação a ser realizada
+matriz = []  # inicializa a matriz
+soma = media = 0  # inicializa as variáveis de soma e média
+
+# lê os valores da matriz
+for i in range(12):
+    linha = []
+    for j in range(12):
+        linha.append(float(input()))
+    matriz.append(linha)
+
+# calcula a soma ou a média dos elementos acima da diagonal principal
+for i in range(12):
+    for j in range(i+1, 12):
+        soma += matriz[i][j]
+if operacao == 'S':
+    resultado = soma
+else:
+    resultado = soma / 66  # há 66 elementos acima da diagonal principal
+
+# exibe o resultado formatado com uma casa decimal
+print("{:.1f}".format(resultado))
+
+```
+
+A ideia do programa é ler a operação e a matriz da entrada, calcular a soma ou a média dos elementos acima da diagonal principal e exibir o resultado formatado com uma casa decimal.
+
+Para isso, o programa utiliza um laço duplo para percorrer os elementos acima da diagonal principal (ou seja, aqueles em que o índice da linha é menor do que o índice da coluna). Em seguida, a soma ou a média é calculada de acordo com a operação escolhida.
+
+Note que o resultado da média é dividido por 66, que é o número de elementos acima da diagonal principal em uma matriz 12x12.
+
+O número de elementos é fixo neste caso, mas para uma matriz genérica, é possível calcular o número de elementos acima da diagonal principal como a soma dos números de 1 a n-1, onde n é o número de linhas ou colunas da matriz.
+
+---
+
+## Combinador
+
+```
+n = int(input())
+
+for i in range(n):
+    s1, s2 = input().split()
+    result = ""
+    len_s1, len_s2 = len(s1), len(s2)
+    for j in range(max(len_s1, len_s2)):
+        if j < len_s1:
+            result += s1[j]
+        if j < len_s2:
+            result += s2[j]
+    print(result)
+
+```
+
+Primeiramente, lemos o número de casos de teste n.
+
+Em seguida, utilizamos um loop for para iterar sobre cada caso de teste.
+Dentro do loop, lemos as duas strings s1 e s2 separadas por espaço.
+Em seguida, inicializamos a string result que será a string resultante da combinação.
+
+Obtemos o comprimento de cada string utilizando a função len().
+Em seguida, utilizamos outro loop for para iterar sobre o comprimento máximo entre as duas strings.
+
+Dentro do loop, verificamos se ainda há letras para adicionar na string resultante result a partir da string s1 e s2, utilizando os índices j e o comprimento de cada string.
+
+Por fim, imprimimos a string resultante result.
+
+---
+
+## Matriz quadrada 2
+
+```
+while True:
+    N = int(input())
+
+    if (N == 0):
+        break
+
+    resultado =  []
+
+    for i in range(1,(N+1)):
+        tmp = []
+        count = i
+        for j in range(N):
+            tmp.append(abs(count))
+            if(count == 1):
+                count -= 3
+            else:
+                count -= 1
+        resultado.append(tmp)
+
+    for i in range(N):
+        tx = ''
+        for j in range(N):
+            tx += " %3d" %resultado[i][j]
+        print(tx[1:])
+    print("")
+
+```
+O código apresentado é um algoritmo em Python que lê um inteiro N e, a partir dele, cria uma matriz com valores que seguem um padrão específico. Depois, o algoritmo imprime essa matriz na tela.
+
+O algoritmo usa um loop while True para garantir que as instruções sejam executadas enquanto não for digitado um valor N igual a 0. Dentro do loop, o algoritmo cria uma lista vazia chamada resultado, que será preenchida com os valores da matriz. Em seguida, há um loop for que itera de 1 até N+1 (pois o range não inclui o último valor). Esse loop cria uma lista tmp vazia e uma variável count que recebe o valor de i.
+
+O loop interno for que segue é responsável por preencher a lista tmp com valores. A cada iteração desse loop, é adicionado à lista tmp o valor absoluto da variável count. Depois disso, a variável count é decrementada em 1 (ou em 3, caso count seja igual a 1).
+
+Ao final de cada iteração do loop externo for, a lista tmp é adicionada à lista resultado. Após o preenchimento da lista resultado, há um novo loop for que itera de 0 até N (pois a lista começa em 0). Esse loop cria uma string tx vazia e, a cada iteração, adiciona à string tx o valor da lista resultado correspondente à linha i e à coluna j. É adicionado um espaço em branco e o formato de exibição "%3d" antes do valor para que o resultado seja apresentado com três caracteres e alinhado à direita. Depois de preencher a string tx, o algoritmo imprime na tela todos os caracteres da string tx, exceto o primeiro espaço em branco.
+
+Ao final de cada conjunto de valores para um valor de N específico, é impressa uma linha em branco para separar os conjuntos.
